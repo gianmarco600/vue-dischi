@@ -3,7 +3,7 @@
         <div class="container-md">
             <img class="flo_l" src="@/assets/Spotify.png" alt="">
             
-            <select class="flo_r" @change="filtro" v-model='filtroGenere' name="cars" id="cars">
+            <select class="flo_r" v-on:change="$emit('genere' ,filtroGenere )"  v-model='filtroGenere' name="cars" id="cars">
                 <option value="">none</option>
                 <option value="rock">rock</option>
                 <option value="pop">pop</option>
@@ -23,12 +23,12 @@ export default {
             filtroGenere:''
         }
     } ,
-    computed:{
-        filtro(){
-            // console.log(this.filtroGenere)
-            return this.$emit('genere' , this.filtroGenere )
-        }
-    }
+    methods:{
+        // filtro(){
+        //     // console.log(this.filtroGenere)
+        //     return this.$emit('genere' , this.filtroGenere )
+        // }
+    },
 }
 </script>
 

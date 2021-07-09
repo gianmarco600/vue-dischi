@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @genere="genereSelected"/>
+    <Header @genere="selezionaGenere"/>
     <Main :genereSel="genereSelected"/>
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
   data(){
     return{
       genereSelected:''
+    }
+  },
+  methods:{
+    selezionaGenere(text){
+      this.genereSelected = text;
     }
   }
 

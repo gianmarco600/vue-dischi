@@ -30,6 +30,7 @@ export default {
             apiURL:'https://flynn.boolean.careers/exercises/api/array/music',
             elementList:'',
             load: false,
+            array:[]
             
             
         }
@@ -50,14 +51,19 @@ export default {
                 
             });
             this.load = true;
+        },
+        print(){
+            console.log(this.array);
         }
     },
     computed:{
         filtraPerGenere(){
             if(this.genereSel != ''){
-            return this.elementList.filter(elem => {
-                elem.genre.toLowerCase() == this.genereSel;
-            })
+                
+                return this.elementList.filter(elem => {
+                    // console.log(elem)
+                    return elem.genre.toLowerCase() == this.genereSel;
+                })
             }
             return this.elementList
         }
