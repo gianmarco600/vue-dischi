@@ -1,7 +1,7 @@
 <template>
     <div class="container-md">
         <div v-if="load" class="scaffale  gy-5 py-3">
-            <div class="rounded _col " v-for="(card,i) in elementList" :key="i">
+            <div class="rounded _col " v-for="(card,i) in filtraPerGenere" :key="i">
                 <Card :disco="card"/>
             </div>
                 
@@ -29,10 +29,12 @@ export default {
         return{
             apiURL:'https://flynn.boolean.careers/exercises/api/array/music',
             elementList:'',
-            load: false
+            load: false,
+            
             
         }
     },
+    props:['genereSel'],
     created(){
         console.log('creo');
         this.APIcall();
@@ -48,6 +50,16 @@ export default {
                 
             });
             this.load = true;
+        }
+    },
+    computed:{
+        filtraPerGenere(){
+            if(this.genereSel != ''){
+            return this.elementList.filter(elem => {
+                elem.genre.toLowerCase() == this.genereSel;
+            })
+            }
+            return this.elementList
         }
     }
 }

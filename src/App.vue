@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Main/>
+    <Header @genere="genereSelected"/>
+    <Main :genereSel="genereSelected"/>
   </div>
 </template>
 
@@ -16,7 +16,13 @@ export default {
   components: {
     Header,
     Main
+  },
+  data(){
+    return{
+      genereSelected:''
+    }
   }
+
 }
 </script>
 
