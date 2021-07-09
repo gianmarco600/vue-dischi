@@ -47,13 +47,13 @@ export default {
             .get(this.apiURL)
             .then(res => {
                 this.elementList = res.data.response;
+                this.sortDisc(this.elementList)
                 console.log(this.elementList);
                 
             });
             this.load = true;
-        },
-        print(){
-            console.log(this.array);
+        },sortDisc(array){
+            array.sort(function(a, b){return b.year-a.year});
         }
     },
     computed:{
